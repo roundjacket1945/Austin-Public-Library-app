@@ -4,6 +4,11 @@ import bcrypt from "bcryptjs"
 
 export async function POST(request: NextRequest) {
   try {
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    })
+
     const { loginMethod, cardNumber, email, passcode } = await request.json()
 
     let user = null
